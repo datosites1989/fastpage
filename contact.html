@@ -43,18 +43,17 @@
     <h2>Inscreve-te na NER - Nova Escola Rock</h2>
 
     <form action="https://formspree.io/f/xnnpadob" method="POST">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
 
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="message">Mensagem:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
 
-        <label for="message">Mensagem:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Enviar Inscrição</button>
-    </form>
+    <button type="submit">Enviar Inscrição</button>
+</form>
 
 </body>
 </html>
