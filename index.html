@@ -1,20 +1,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>DeodatoBarbosa</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/arial.js"></script>
-<script type="text/javascript" src="js/cuf_run.js"></script>
-<script type="text/javascript" src="js/radius.js"></script>
+    <title>DeodatoBarbosa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/cufon-yui.js"></script>
+    <script type="text/javascript" src="js/arial.js"></script>
+    <script type="text/javascript" src="js/cuf_run.js"></script>
+    <script type="text/javascript" src="js/radius.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+    <script>
+        var idx = lunr(function () {
+            this.ref('id');
+            this.field('title');
+            this.field('content');
+            
+            this.add({ id: 1, title: 'Bio', content: 'Professor de guitarra com 30 anos de experiência, especializado em rock clássico e heavy metal.' });
+            this.add({ id: 2, title: 'NER - Nova Escola Rock', content: 'Escola de música focada no ensino do rock, promovendo um ambiente criativo para músicos.' });
+            this.add({ id: 3, title: 'Eventos', content: 'Workshops e apresentações ao vivo para músicos e alunos da escola.' });
+        });
+        
+        function search() {
+            var query = document.getElementById('searchInput').value;
+            var results = idx.search(query);
+            var resultDiv = document.getElementById('results');
+            resultDiv.innerHTML = '';
+            
+            if (results.length > 0) {
+                results.forEach(function (result) {
+                    var p = document.createElement('p');
+                    p.textContent = 'Resultado encontrado: ' + result.ref;
+                    resultDiv.appendChild(p);
+                });
+            } else {
+                resultDiv.innerHTML = '<p>Sem resultados.</p>';
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="main">
   <div class="header">
     <div class="header_resize">
-      <div class="logo"> <img src="images/nova-escola-rock-logo3.png" alt="" width="51" height="48" />
+      <div class="logo">
+        <img src="images/nova-escola-rock-logo3.png" alt="" width="51" height="48" />
         <h1><a href="index.html"><span>Deodato</span>Barbosa</a><small>Professor de Guitarra/Formador</small></h1>
       </div>
       <div class="clr"></div>
@@ -29,14 +59,16 @@
         <div class="search">
           <form id="form" name="form" method="post" action="#">
             <span>
-            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
-            <input name="b" type="image" src="images/search.gif" class="button" />
+              <input name="q" type="text" class="keywords" id="searchInput" maxlength="50" value="Search..." />
+              <input name="b" type="image" src="images/search.gif" class="button" onclick="search(); return false;" />
             </span>
           </form>
         </div>
       </div>
       <div class="clr"></div>
-      <div class="header_img"> <img src="images/DeodatoBarbosaFormador2.png" alt="" width="960" height="326" /></div>
+      <div class="header_img">
+        <img src="images/DeodatoBarbosaFormador2.png" alt="" width="960" height="326" />
+      </div>
     </div>
   </div>
   <div class="clr"></div>
@@ -44,111 +76,13 @@
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>Bio</span></h2>
-          <div class="clr"></div>
-          <p>Guitarra Clássica/Elétrica/Formação Musical<br>30 anos de experiência em guitarra. Especializado em rock clássico e heavy metal.</p>
-          <img src="images/Uma Guitarra Com Gente Dentro - Pinguim Café 05-12-2014.webp" width="202" height="147" alt="" class="fl" /> O meu nome é Deodato Barbosa e para além de ser músico e Professor de guitarra à 30 anos, estive ligado a outras atividades, nomeadamente na área da segurança privada e na informática. 
-          Atualmente estou ligado à Formação/Educação mais concretamente na área da Música, Expressão Musical e Educação Musical.
-          Possuo o CCP [CCP (ex-CAP)] ou Certificado de Competências Pedagógicas do Formador) que me dá as competências necessárias para exercer a profissão de Músico, Professor de Música e Guitarra..
-          <p>Nasci na freguesia de Frazão, concelho de Paços de Ferreira a 3 de outubro de 1968.
-          Dei os meus primeiros passos na música, teria uns 10 anos de idade, quando frequentei a Escola de Música "Parnaso" no Porto pertencente a Fernando Correia de Oliveira.
-          Em 1996, formei a minha primeira banda, os "Exort".
-          Depois de um período onde fui desenvolvendo a técnica como autodidata, decidi inscrever-me na "Escola de Jazz do Porto", onde frequentei o curso de guitarra na vertente rock com o Professor Humberto Carneiro, aulas de canto e formação musical.
-
-          Mais tarde decidi continuar os estudos e frequentei vários cursos intensivos, workshops e o curso de guitarra clássica na Academia de Música Valentim Moreira de Sá em Guimarães, uma dependência do Conservatório de Braga.
-
-
-          Depois de algum tempo, dou início à minha atividade como professor de música e guitarra, lecionando na Escola Profissional Vértice e Academia de Música Adágio, Academia de Música "Trá-lá-lá em Paços de Ferreira e no Centro de Estudos "Papiba" em Alfena, hoje "Escola de Rock".
-
-          Durante estes anos, para além de compor para outras bandas, formei e fiz parte de vários projetos. Foi nesta altura que também desenvolvi alguns trabalhos a solo e integrei como guitarrista duas bandas de covers, os "Koverkave" e os "Hell Sweet Hell", tributando assim o que de melhor se fazia e faz a nível de heavy metal nacional e internacional. Integrei também um projeto de tributo a Carlos Paredes, que me deu especial satisfação, de seu nome "Uma Guitarra com Gente Dentro", juntamente com um amigo e guitarrista/compositor, Mauro Passos. </p>
-          <p><a href="https://aprender-guitarra-2018.webnode.pt/quem-somos/" target="_blank">Leia mais</a></p>
-
-        </div>
-        <div class="article">
-          <h2><span>NER - Nova Escola</span> Rock</h2>
-          <div class="clr"></div>
-          <p>NER - Nova Escola Rock: A Persistência de um Sonho<br>O rock nunca morre, e a NER também não!!!</p>
-          <img src="images/NER - Nova Escola Rock - Imagem para o trabalho final.webp" width="202" height="147" alt="" class="fl" />
-          <p>Em 2018, nascia a NER - Nova Escola Rock, um projeto ousado e apaixonado, 
-            criado com a missão de formar músicos e espalhar o amor pelo rock. Desde o primeiro dia, 
-            a escola vibrou com acordes intensos e melodias que ecoavam nos corações de quem por lá passava. 
-            Mais do que um espaço de ensino, a NER era uma comunidade onde a música era uma linguagem universal, 
-            unindo professores e alunos numa viagem de descoberta e criatividade.</p>
-          <p>Nos primeiros anos, a escola conquistou alunos dedicados e fez-se notar pela sua abordagem inovadora e apaixonada. 
-            Os palcos ganharam vida com concertos memoráveis, e a energia do rock inspirava cada acorde tocado dentro das suas paredes. 
-            No entanto, como qualquer grande jornada, esta também encontrou os seus desafios. </p>
-          <p>Em 2020, quando o mundo foi sacudido pela pandemia, a NER viu-se obrigada a enfrentar um dos momentos mais difíceis da sua história. 
-            O silêncio tomou conta das salas de ensaio, os amplificadores deixaram de rugir e os encontros musicais foram substituídos por um vazio inesperado. 
-            A escola, que até então tinha sido um refúgio para músicos e sonhadores, enfrentou uma descida abrupta. 
-            A incerteza instalou-se, e a sobrevivência da NER tornou-se uma batalha constante.<br>
-            Mas, como qualquer boa música de rock, a história da NER não terminou no meio de uma nota triste. 
-          Com resiliência, criatividade e uma paixão inabalável, começou-se a traçar um caminho para o regresso. A escola adaptou-se, 
-          explorou novas formas de ensino e, mesmo nos momentos mais difíceis, manteve viva a chama do sonho original.</p>
-          <p>Agora, a NER - Nova Escola Rock prepara-se para escrever um novo capítulo. 
-            Com um plano de negócios renovado e uma visão clara para o futuro, a escola está pronta para voltar a erguer-se, 
-            mais forte e mais determinada do que nunca. O rock nunca morre, e a NER também não. Afinal, 
-            uma verdadeira escola de música não é feita apenas de paredes e instrumentos, mas sim das pessoas que acreditam no seu poder transformador.</p>
-          <p><strong>E ESTA HISTÓRIA… AINDA AGORA COMEÇOU.</strong></p>
-          <p><a href="https://www.facebook.com/novaescolarock" target="_blank" rel="noopener noreferrer">Leia mais</a></p>
-        
-        </div>
-        <div class="article">
-          <p>Page 1 of 3 <span class="butons"><a href="https://aprender-guitarra-2018.webnode.pt/">3</a><a href="https://www.facebook.com/deodatoformador/">2</a> <a href="https://datofz89.github.io/" class="active">1</a></span></p>
+          <h2><span>Resultados da Pesquisa</span></h2>
+          <div id="results"></div>
         </div>
       </div>
-      <div class="sidebar">
-        <div class="gadget">
-          <h2 class="star">Sidebar Menu</h2>
-          <div class="clr"></div>
-          <ul class="sb_menu">
-            <li><a href="https://datosites1989.github.io/fastpage/">Home</a></li>
-            <li><a href="https://prezi.com/p/jlnpnrhxrb7k/apresentacao-da-nova-escola-rock/">Apresentação</a></li>
-            <li><a href="https://www.youtube.com/watch?app=desktop&v=IN1Yu8hLMR4">Primeiro Vídeo Promocional</a></li>
-            <li><a href="https://www.even3.com.br/ner_arc_sobrao/">Workshop de Música</a></li>
-            <li><a href="https://aprender-guitarra-2018.webnode.pt/porque-tocar-guitarra/">Porquê tocar Guitarra</a></li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2 class="star"><span>Parcerias</span></h2>
-          <div class="clr"></div>
-          <ul class="ex_menu">
-            <li><a href="https://nelashanti.wixsite.com/manuelapereira">Manuela Pereira</a><br />
-              Animadora & Escritora</li>
-            <li><a href="https://aprender-guitarra-2018.webnode.pt/a-sua-oficina/">Carlos Matos</a><br />
-              Reparação de Instrumentos Musicais e todo o tipo de Componentes Eletrónicos</li>
-            <li><a href="https://arcsobrao.wordpress.com/">ARC - Sobrão</a><br />
-              Associação Recreativa e Cultural de Sobrão</li>
-          </ul>
-        </div>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
-  <div class="fbg">
-    <div class="fbg_resize">
-      <div class="col c1">
-        <h2><span>Image Gallery</span></h2>
-        <a href="#"><img src="images/dato1.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/dato2.jpeg" width="58" height="58" alt="" /></a>
-        <a href="#"><img src="images/dato3.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/dato4.jpg" width="58" height="58" alt="" /></a> 
-        <a href="#"><img src="images/dato5.jpg" width="58" height="58" alt="" /></a> <a href="#"><img src="images/dato6.png" width="58" height="58" alt="" /></a> </div>
-      <div class="col c2">
-        <h2><span>Alguns Momentos</span></h2>
-        <p>Com 30 anos dedicados ao ensino da guitarra clássica e elétrica, sou apaixonado por partilhar a arte musical. Acredito que cada acorde é uma oportunidade de expressão e crescimento. Na minha escola, a <strong>NER - Nova Escola Rock</strong> - <a href="https://datofz89.github.io/" target="_blank">visita o nosso site</a>, promovemos um ambiente onde a criatividade e a técnica se unem, permitindo que cada aluno encontre o seu próprio caminho musical. Junta-te a nós nesta jornada sonora e descobre o poder transformador da música.</p>
-
-      </div>
-      <div class="col c3">
-        <h2><span>Contacto</span></h2>
-        <p>Agenda já a tua aula grátis <a href="#">novaescolarock@gmail.com</a><br />
-        <a href="#">+351 938066695</a></p>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="footer">
-      <p class="lr">NER - Nova Escola Rock Copyright &copy; <a href="https://datofz89.github.io/">Domain Name</a>. All Rights Reserved</p>
-      <p class="lf">Design by Deodato Barbosa @ <a target="_blank" href="https://aprender-guitarra-2018.webnode.pt/porque-tocar-guitarra/">NER - Nova Escola Rock</a></p>
-      <div class="clr"></div>
     </div>
   </div>
 </div>
 </body>
 </html>
+
